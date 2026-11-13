@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: adjutant
+      POSTGRES_PASSWORD: adjutant
+      POSTGRES_DB: adjutant
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U adjutant -d adjutant"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  opa:
+    image: openpolicyagent/opa:latest
+    command: ["run", "--server", "--addr=0.0.0.0:8181", "/policies"]
+    volumes:
+      - ./opa/policies:/policies:ro
+    ports:
+      - "8181:8181"
+
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://adjutant:adjutant@db:5432/adjutant
+      SEED_DEMO: "true"
+      APP_ENV: local
+      MODEL_PROVIDER: mock
+    ports:
+      - "8010:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

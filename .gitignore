@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.env
+.env.local
+.pytest_cache/
+.venv/
+pgdata/
+
+# web build artifacts and dependencies
+web/node_modules/
+web/dist/
+node_modules/
+dist/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.log
+.qoder/
