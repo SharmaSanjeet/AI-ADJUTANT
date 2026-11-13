@@ -101,7 +101,7 @@ docker compose up --build
 | Interactive API docs | http://localhost:8010/docs |
 | Health | http://localhost:8010/health |
 
-A **synthetic ransomware incident** (`FIN-WS-0142`) is seeded on first start — no real data, no external calls, nothing to configure.
+A **synthetic ransomware incident** (`FIN-WS-0142`) is seeded on first start — no real data, no external calls, nothing to configure. New here? [Walk the demo incident in the UI](docs/ui-guide.md) — the click-by-click tour.
 
 ## Usage guide
 
@@ -247,7 +247,7 @@ The guarantees that make the demo trustworthy — enforced in code, covered by 7
 - **Per-action autonomy with fail-safe defaults.** Shadow → suggest → approve levels; promotion needs scorecard thresholds **and** a config flag that defaults off; demotion is deterministic and never gated.
 - **Earned trust upgrades only.** Untrusted facts become usable only when a trusted source explicitly supersedes them.
 
-Full guarantee list per phase: [BUILD_PLAN.md](BUILD_PLAN.md) · Deep architecture: [docs/architecture.md](docs/architecture.md) · The agents: [docs/agents.md](docs/agents.md) · Security policy: [SECURITY.md](SECURITY.md)
+Full guarantee list per phase: [BUILD_PLAN.md](BUILD_PLAN.md) · Deep architecture: [docs/architecture.md](docs/architecture.md) · The agents: [docs/agents.md](docs/agents.md) · UI walkthrough: [docs/ui-guide.md](docs/ui-guide.md) · Security policy: [SECURITY.md](SECURITY.md)
 
 ## Configuration
 
