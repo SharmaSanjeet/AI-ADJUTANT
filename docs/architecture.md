@@ -80,7 +80,7 @@ This is the prompt-injection boundary: attacker-controlled text can enter the le
 
 ## The agents
 
-Eight deterministic agents do the analytical work. They are code, not LLM loops — same inputs produce the same outputs, replayable from the event log.
+Eight deterministic agents do the analytical work. They are code, not LLM loops — same inputs produce the same outputs, replayable from the event log. Per-agent deep dive (triggers, inputs, outputs, guardrails): [agents.md](agents.md).
 
 | Agent | Does | Cannot do |
 |---|---|---|

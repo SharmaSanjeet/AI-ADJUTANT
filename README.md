@@ -238,7 +238,7 @@ The guarantees that make the demo trustworthy — enforced in code, covered by 7
 - **Append-only, hash-chained events.** Updates and deletes are rejected by database triggers; tampering breaks verification (`/audit/verify`).
 - **Quarantined ingestion.** Raw, attacker-controlled input is stored untrusted; deterministic allowlisted extraction runs first; the LLM extractor (tool-less, schema-strict, no network) only sees residual text and only produces untrusted-derived facts.
 - **Provenance on everything.** Every fact carries source, valid/recorded times, a confidence tuple, status, classification, trust marker, evidence references, and a supersedes link.
-- **Deterministic agents.** All eight agents are pure code — same inputs, same outputs, replayable from the event log.
+- **Deterministic agents.** All eight agents are pure code — same inputs, same outputs, replayable from the event log. Per-agent deep dive: [docs/agents.md](docs/agents.md).
 - **Human-only consequential actions.** Approvals, acks, clock confirmations, sends, and executions reject `agent:`/`system:`/`bot:`/`model:` actors.
 - **Signed, expiring, single-use approvals.** Bound to an exact action hash; replay blocked by a partial unique index; refusals never consume an approval.
 - **Dry-run-only execution.** Real mode is refused unconditionally; evidence preservation is simulated first; the JIT broker issues scope descriptors, never credentials.
@@ -247,7 +247,7 @@ The guarantees that make the demo trustworthy — enforced in code, covered by 7
 - **Per-action autonomy with fail-safe defaults.** Shadow → suggest → approve levels; promotion needs scorecard thresholds **and** a config flag that defaults off; demotion is deterministic and never gated.
 - **Earned trust upgrades only.** Untrusted facts become usable only when a trusted source explicitly supersedes them.
 
-Full guarantee list per phase: [BUILD_PLAN.md](BUILD_PLAN.md) · Deep architecture: [docs/architecture.md](docs/architecture.md) · Security policy: [SECURITY.md](SECURITY.md)
+Full guarantee list per phase: [BUILD_PLAN.md](BUILD_PLAN.md) · Deep architecture: [docs/architecture.md](docs/architecture.md) · The agents: [docs/agents.md](docs/agents.md) · Security policy: [SECURITY.md](SECURITY.md)
 
 ## Configuration
 
